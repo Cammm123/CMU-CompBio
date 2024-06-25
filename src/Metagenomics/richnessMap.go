@@ -5,8 +5,8 @@ package main
 func RichnessMap(allMaps map[string](map[string]int)) map[string]int {
 	new_map := make(map[string]int)
 
-	for i := range allMaps {
-		new_map[i] = Richness(allMaps[i])
+	for sampleName := range allMaps {
+		new_map[sampleName] = Richness(allMaps[sampleName])
 	}
 
 	return new_map

@@ -1,7 +1,7 @@
 package main
 
-//Richness takes a frequency map. It returns the richness of the frequency map
-//(i.e., the number of keys in the map corresponding to nonzero values.)
+// Richness takes a frequency map. It returns the richness of the frequency map
+// (i.e., the number of keys in the map corresponding to nonzero values.)
 // Input: a frequency map sample
 // Output: the richness of sample. That is, the number of strings in the
 // frequency map corresponding to sample
@@ -20,8 +20,8 @@ func Richness(sample map[string]int) int {
 	return c
 }
 
-//JaccardDistance takes two frequency maps and returns the Jaccard
-//distance between them.
+// JaccardDistance takes two frequency maps and returns the Jaccard
+// distance between them.
 func JaccardDistance(map1 map[string]int, map2 map[string]int) float64 {
 	c := SumOfMinima(map1, map2)
 	t := SumOfMaxima(map1, map2)
@@ -29,12 +29,12 @@ func JaccardDistance(map1 map[string]int, map2 map[string]int) float64 {
 	return j
 }
 
-//SumOfMaxima takes two frequency maps as input.
-//It identifies the keys that are shared by the two frequency maps
-//and returns the sum of the corresponding values. (a.k.a. "union")
-//SumOfMaxima takes two frequency maps as input.
-//It identifies the keys that are shared by the two frequency maps
-//and returns the sum of the corresponding values. (a.k.a. "union")
+// SumOfMaxima takes two frequency maps as input.
+// It identifies the keys that are shared by the two frequency maps
+// and returns the sum of the corresponding values. (a.k.a. "union")
+// SumOfMaxima takes two frequency maps as input.
+// It identifies the keys that are shared by the two frequency maps
+// and returns the sum of the corresponding values. (a.k.a. "union")
 func SumOfMaxima(map1 map[string]int, map2 map[string]int) int {
 	c := 0
 
@@ -61,7 +61,7 @@ func SumOfMaxima(map1 map[string]int, map2 map[string]int) int {
 	return c
 }
 
-//Max2 takes two integers and returns their maximum.
+// Max2 takes two integers and returns their maximum.
 func Max2(n1, n2 int) int {
 	if n1 < n2 {
 		return n2
@@ -82,9 +82,9 @@ func FrequencyMap(patterns []string) map[string]int {
 	return freqMap
 }
 
-//SimpsonsIndex takes a frequency map and returns a decimal corresponding to Simpson's index:
-//the sum of (n/N)^2 where n is the number of individuals found for a given string/species
-//and N is the total number of individuals. The sum is over all species present.
+// SimpsonsIndex takes a frequency map and returns a decimal corresponding to Simpson's index:
+// the sum of (n/N)^2 where n is the number of individuals found for a given string/species
+// and N is the total number of individuals. The sum is over all species present.
 func SimpsonsIndex(sample map[string]int) float64 {
 	total := SampleTotal(sample)
 	simpson := 0.0
@@ -100,8 +100,8 @@ func SimpsonsIndex(sample map[string]int) float64 {
 	return simpson
 }
 
-//SampleTotal takes a frequency map as input.
-//It returns the sum of the counts for each string in a sample.
+// SampleTotal takes a frequency map as input.
+// It returns the sum of the counts for each string in a sample.
 func SampleTotal(freqMap map[string]int) int {
 	total := 0
 	for _, val := range freqMap {
@@ -110,8 +110,8 @@ func SampleTotal(freqMap map[string]int) int {
 	return total
 }
 
-//BrayCurtisDistance takes two frequency maps and returns the Bray-Curtis
-//distance between them.
+// BrayCurtisDistance takes two frequency maps and returns the Bray-Curtis
+// distance between them.
 func BrayCurtisDistance(map1 map[string]int, map2 map[string]int) float64 {
 	c := SumOfMinima(map1, map2)
 	s1 := SampleTotal(map1)
@@ -126,14 +126,14 @@ func BrayCurtisDistance(map1 map[string]int, map2 map[string]int) float64 {
 	return 1 - (float64(c) / av)
 }
 
-//Average takes two floats and returns their average.
+// Average takes two floats and returns their average.
 func Average(x, y float64) float64 {
 	return (x + y) / 2.0
 }
 
-//SumOfMinima takes two frequency maps as input.
-//It identifies the keys that are shared by the two frequency maps
-//and returns the sum of the corresponding values.
+// SumOfMinima takes two frequency maps as input.
+// It identifies the keys that are shared by the two frequency maps
+// and returns the sum of the corresponding values.
 func SumOfMinima(map1 map[string]int, map2 map[string]int) int {
 	c := 0
 
@@ -147,10 +147,20 @@ func SumOfMinima(map1 map[string]int, map2 map[string]int) int {
 	return c
 }
 
-//Min2 takes two integers and returns their minimum.
+// Min2 takes two integers and returns their minimum.
 func Min2(n1, n2 int) int {
 	if n1 < n2 {
 		return n1
 	}
 	return n2
 }
+
+/*
+func InitializeSquareMatrix(numRows int, [][]float64){ //I think this is how you do it
+	mtx := make([][]float64, numRows)
+
+	for rows in range mtx {
+		mtx[rows] = make([]float64, numRows)
+	}
+}
+*/

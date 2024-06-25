@@ -5,11 +5,8 @@ package main
 func SimpsonsMap(allMaps map[string](map[string]int)) map[string]float64 {
 	new_map := make(map[string]float64)
 
-	for i := range allMaps {
-		// if allMaps[i] != new_map[i] {
-
-		// }
-		new_map[i] = SimpsonsIndex(allMaps[i])
+	for sampleName := range allMaps {
+		new_map[sampleName] = SimpsonsIndex(allMaps[sampleName])
 	}
 
 	return new_map

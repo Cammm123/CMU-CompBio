@@ -155,12 +155,13 @@ func Min2(n1, n2 int) int {
 	return n2
 }
 
-/*
-func InitializeSquareMatrix(numRows int, [][]float64){ //I think this is how you do it
-	mtx := make([][]float64, numRows)
-
-	for rows in range mtx {
-		mtx[rows] = make([]float64, numRows)
+func InitializeSquareMatrix(n int) [][]float64 {
+	//first, make the slice
+	mtx := make([][]float64, n)
+	for i := 0; i < n; i++ {
+		// in here, we make the rows
+		mtx[i] = make([]float64, n)
 	}
+
+	return mtx
 }
-*/

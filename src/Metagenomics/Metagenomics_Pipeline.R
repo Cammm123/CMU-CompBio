@@ -16,7 +16,7 @@ library(ape) #ape library to compute PCoA of our matrix
 
 #Now, we need to set the year. Set this equal to 2019 or 2023 as the case may be 
 
-year <- "2023"
+year <- "2019"
 
 # Part 1: generate box plots of evenness by location using Simpson's index.
 

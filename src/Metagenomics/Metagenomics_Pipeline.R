@@ -18,9 +18,27 @@ library(ape) #ape library to compute PCoA of our matrix
 
 year <- "2019"
 
-# Part 1: generate box plots of evenness by location using Simpson's index.
+# Part 1: generate box plots of richness and evenness by location using Simpson's index.
 
-# first, read in the table
+# read in the richness table
+
+richnessTable <- read.csv(file=paste("Matrices/RichnessMatrix_", year, ".csv",sep=""))
+
+richnessColumns <- data.frame(richnessTable)
+
+# Add column to our data frame to represent the location
+
+Location <- sub("\\_.*", "", richnessColumns$Sample) # parse out just the location from sample name
+
+cbind(richnessColumns, Location) # adding column
+
+# Now we plot box plots where we have richness lumped by location.
+
+ggplot(richnessColumns, aes(x=Location, y=Richness, fill=Location)) + geom_boxplot() +ggtitle("Richness over location")
+
+ggsave(paste("Plots/RichnessBoxPlots_",year,".png", sep=""), width=8, height=6, dpi=1000)
+
+# next, read in the Simpson's index table
 
 simpsonTable <- read.csv(file=paste("Matrices/SimpsonMatrix_", year, ".csv",sep=""))
 

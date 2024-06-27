@@ -3,6 +3,10 @@ package main
 // LCSLength takes two strings as input. It returns the length of a longest common
 // subsequence of the two strings.
 func LCSLength(str1, str2 string) int {
+	if len(str1) == 0 || len(str2) == 0 {
+		panic("Empty strings given.")
+	}
+
 	array_2D := make([][]int, len(str1)+1)
 
 	for row := range array_2D {
@@ -18,7 +22,7 @@ func LCSLength(str1, str2 string) int {
 			if str1[r-1] == str2[c-1] {
 				array_2D[r][c] = z + 1
 			} else {
-				array_2D[r][c] = max(x, y)
+				array_2D[r][c] = MaxIntegers(x, y, z)
 			}
 		}
 	}
@@ -26,9 +30,18 @@ func LCSLength(str1, str2 string) int {
 	return array_2D[len(str1)][len(str2)]
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
+func MaxIntegerArray(list []int) int {
+	max := list[0]
+
+	for i := range list {
+		if list[i] > max {
+			max = list[i]
+		}
 	}
-	return b
+
+	return max
+}
+
+func MaxIntegers(numbers ...int) int {
+	return MaxIntegerArray(numbers)
 }

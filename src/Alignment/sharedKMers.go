@@ -16,24 +16,3 @@ func CountSharedKmers(str1, str2 string, k int) int {
 
 	return SumOfMinima(kmers1, kmers2)
 }
-
-func SumOfMinima(map1 map[string]int, map2 map[string]int) int {
-	c := 0
-
-	for key := range map1 {
-		_, exists := map2[key]
-		if exists {
-			c += Min2(map1[key], map2[key])
-		}
-	}
-
-	return c
-}
-
-// Min2 takes two integers and returns their minimum.
-func Min2(n1, n2 int) int {
-	if n1 < n2 {
-		return n1
-	}
-	return n2
-}

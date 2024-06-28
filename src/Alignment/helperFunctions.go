@@ -165,3 +165,46 @@ func InitializeRectangleMatrix(a, b int) [][]int {
 
 	return mtx
 }
+
+func InitializeScoringMatrix(a, b string) [][]int {
+	m := len(a)
+	n := len(b)
+
+	dp := make([][]int, m+1)
+	for i := range dp {
+		dp[i] = make([]int, n+1)
+	}
+	return dp
+}
+
+func MaxIntegerArray(list []int) int {
+	max := list[0]
+
+	for i := range list {
+		if list[i] > max {
+			max = list[i]
+		}
+	}
+
+	return max
+}
+
+func MaxIntegers(numbers ...int) int {
+	return MaxIntegerArray(numbers)
+}
+
+func MaxFloatArray(list []float64) float64 {
+	max := list[0]
+
+	for i := range list {
+		if list[i] > max {
+			max = list[i]
+		}
+	}
+
+	return max
+}
+
+func MaxFloats(numbers ...float64) float64 {
+	return MaxFloatArray(numbers)
+}

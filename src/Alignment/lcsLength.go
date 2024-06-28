@@ -29,19 +29,3 @@ func LCSLength(str1, str2 string) int {
 
 	return array_2D[len(str1)][len(str2)]
 }
-
-func MaxIntegerArray(list []int) int {
-	max := list[0]
-
-	for i := range list {
-		if list[i] > max {
-			max = list[i]
-		}
-	}
-
-	return max
-}
-
-func MaxIntegers(numbers ...int) int {
-	return MaxIntegerArray(numbers)
-}

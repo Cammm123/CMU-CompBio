@@ -6,7 +6,8 @@ import (
 
 func main() {
 	fmt.Println("Sequence alignment!")
-	Hemoglobin()
+	SARSAlignment()
+
 }
 
 func Hemoglobin() {
@@ -27,4 +28,18 @@ func Hemoglobin() {
 
 	alignment3 := GlobalAlignment(gorilla, human, match, mismatch, gap)
 	WriteAlignmentToFASTA(alignment3, "Output/gorilla-human.txt")
+}
+
+func SARSAlignment() {
+	fmt.Println("Reading in genomes.")
+	sars1 := ReadFASTAFile("Data/Coronaviruses/SARS-CoV_genome.fasta")
+	sars2 := ReadFASTAFile("Data/Coronaviruses/SARS-CoV-2_genome.fasta")
+	fmt.Println("Genomes read, Running global aligment")
+
+	match := 1.0
+	mismatch := 1.0
+	gap := 3.0
+	sarsAlignment := GlobalAlignment(sars1, sars2, match, mismatch, gap)
+	fmt.Println("Global alignment ran. Printing alignment to file.")
+	WriteAlignmentToFASTA(sarsAlignment, "Output/sars_genome_alignment.txt")
 }

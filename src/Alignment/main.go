@@ -6,7 +6,7 @@ import (
 
 func main() {
 	fmt.Println("Sequence alignment!")
-	SARSAlignment()
+	SARSSpikeAlignment()
 
 }
 
@@ -38,8 +38,22 @@ func SARSAlignment() {
 
 	match := 1.0
 	mismatch := 1.0
-	gap := 3.0
+	gap := 2.0
 	sarsAlignment := GlobalAlignment(sars1, sars2, match, mismatch, gap)
 	fmt.Println("Global alignment ran. Printing alignment to file.")
 	WriteAlignmentToFASTA(sarsAlignment, "Output/sars_genome_alignment.txt")
+}
+
+func SARSSpikeAlignment() {
+	sarsSpike := ReadFASTAFile("Data/Coronaviruses/SARS-CoV_genome_spike_protein.fasta")
+	sars2 := ReadFASTAFile("Data/Coronaviruses/SARS-CoV-2_genome.fasta")
+	
+	fmt.Println("Genomes read, Running global aligment")
+
+	match := 1.0
+	mismatch := 1.0
+	gap := 2.0
+	sarsAlignment := GlobalAlignment(sarsSpike, sars2, match, mismatch, gap)
+	fmt.Println("Global alignment ran. Printing alignment to file.")
+	WriteAlignmentToFASTA(sarsAlignment, "Output/sars_genome_spike_alignment.txt")
 }

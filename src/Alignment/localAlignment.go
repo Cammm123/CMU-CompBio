@@ -95,8 +95,7 @@ func LocalAlignment(str1, str2 string, match, mismatch, gap float64) (Alignment,
     start1 = col
     start2 = row
 
-	//alignment[0] = newString1
-	//alignment[1] = newString2
+	
 
 
     return alignment, start2, end2, start1, end1

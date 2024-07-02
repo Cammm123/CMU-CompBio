@@ -60,7 +60,7 @@ func SARSSpikeAlignment() {
 	match := 1.0
 	mismatch := 1.0
 	gap := 2.0
-	sarsAlignment := GlobalAlignment(sarsSpike, sars2, match, mismatch, gap)
+	sarsAlignment, start2, end2, start1, end1 := LocalAlignment(sarsSpike, sars2, match, mismatch, gap)
 	fmt.Println("Global alignment ran. Printing alignment to file.")
-	WriteAlignmentToFASTA(sarsAlignment, "Output/sars_genome_spike_alignment.txt")
+	WriteLocalAlignmentToFASTA(sarsAlignment, "Output/sars_genome_spike_alignment_GOOD.txt", start2, end2, start1, end1)
 }

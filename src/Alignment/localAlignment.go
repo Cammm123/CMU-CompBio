@@ -39,8 +39,8 @@ func LocalAlignment(str1, str2 string, match, mismatch, gap float64) (Alignment,
     }
 	
 	row, col := end1, end2
-	for row > 0 && col > 0 && scoreTable[row][col] != 0{
-		for row != 0 { //forces the code to go to the top row
+	for row > 0 && col > 0 && scoreTable[row][col] != 0 {
+		for row != 0 { //forces the code to go to the top row aka use all of spike protein
 			up := scoreTable[row-1][col] - gap
 			left := scoreTable[row][col-1] - gap
 			diag := scoreTable[row-1][col-1]

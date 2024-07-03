@@ -8,7 +8,7 @@ package main
 //4. DNA is single-stranded
 func GreedyAssembler(reads []string) string {
 	if len(reads) == 0 {
-		return ""
+		panic("Error: No reads given to GenomeAssembler!")
 	}
 
 	reads2 := reads[0]
@@ -23,7 +23,7 @@ func GreedyAssembler(reads []string) string {
 			// Check if we can append to the left
 			if len(reads2) >= 2 && read[len(read)-2:] == reads2[:2] {
 				reads2 = read[:1] + reads2
-				reads = append(reads[:i], reads[i+1:]...)
+				reads = append(reads[:i], reads[i+1:]...) //delete the substring we used
 				found = true
 				break
 			}
@@ -31,7 +31,7 @@ func GreedyAssembler(reads []string) string {
 			// Check if we can append to the right
 			if len(reads2) >= 2 && read[:2] == reads2[len(reads2)-2:] {
 				reads2 += read[len(read)-1:]
-				reads = append(reads[:i], reads[i+1:]...)
+				reads = append(reads[:i], reads[i+1:]...) //delete the substring we used
 				found = true
 				break
 			}
